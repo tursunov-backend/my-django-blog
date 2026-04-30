@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="container article-detail">
+
+    <!-- ARTICLE HEADER -->
+    <header class="article-header">
+        <h1 class="article-title">
+            {{ article.title }}
+        </h1>
+
+        <div class="article-meta">
+            <span>{{ article.author.name }}</span>
+            <span>•</span>
+            <span>{{ article.published_at|date:"M d, Y" }}</span>
+            <span>•</span>
+            <span>{{ article.reading_time }} min read</span>
+        </div>
+    </header>
+
+
+    <!-- FEATURE IMAGE (optional) -->
+    <div class="article-image">
+        <img src="https://www.diyorbekjumanov.uz/media/blog/images/2026/01/1_1h-5q624i2wkXOZhk3yhxA.png" alt="Article Image">
+    </div>
+
+
+    <!-- ARTICLE CONTENT -->
+    <article class="article-content">
+
+        {{ article.content|linebreaks }}
+
+    </article>
+
+
+    <!-- TAGS -->
+    <div class="article-tags">
+        <a href="#">microservices</a>
+        <a href="#">architecture</a>
+        <a href="#">scalability</a>
+    </div>
+
+</div>
+{% endblock content %}

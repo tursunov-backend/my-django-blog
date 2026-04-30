@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="container">
+
+        <h2>All Articles</h2>
+
+        <article class="article-list">
+
+            {% for article in articles %}
+                <section class="article-item">
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.description }}</p>
+                    <a href="{% url "article_details" slug=article.slug %}">Read more →</a>
+                </section>
+            {% endfor %}
+
+        </article>
+
+    </div>
+{% endblock content %}
