@@ -1,0 +1,272 @@
+/* =========================
+   1. RESET & BASE
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #f9fafb;
+}
+
+/* =========================
+   2. DESIGN TOKENS
+========================= */
+
+:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --color-bg: #ffffff;
+
+    --container-width: 1100px;
+
+    --radius: 8px;
+
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --space-xl: 64px;
+}
+
+/* =========================
+   3. GLOBAL UTILITIES
+========================= */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================
+   4. HEADER
+========================= */
+
+.site-header {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+/* =========================
+   5. MAIN
+========================= */
+
+.site-main {
+    padding: var(--space-xl) 0;
+    min-height: 70vh;
+}
+
+/* =========================
+   6. CONTENT LAYOUT (2-column)
+========================= */
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+}
+
+/* =========================
+   7. CARD / ARTICLE
+========================= */
+
+.card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.post-preview {
+    margin-bottom: var(--space-lg);
+}
+
+.post-preview h2 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+}
+
+.post-preview p {
+    color: var(--color-muted);
+    margin-bottom: var(--space-sm);
+}
+
+/* =========================
+   8. SIDEBAR
+========================= */
+
+.sidebar section {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.sidebar h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.1rem;
+}
+
+/* =========================
+   9. HERO
+========================= */
+
+.hero {
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    color: white;
+    padding: var(--space-xl) 0;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-xl);
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+}
+
+.hero p {
+    margin-bottom: var(--space-md);
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+/* =========================
+   10. FOOTER
+========================= */
+
+.site-footer {
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-xl);
+}
+
+.site-footer .container {
+    padding: var(--space-lg) 0;
+    text-align: center;
+}
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.site-footer p {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================
+   11. FORM (Contact page)
+========================= */
+
+form div {
+    margin-bottom: var(--space-md);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font: inherit;
+}
+
+button {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--color-primary-dark);
+}
+
+/* =========================
+   12. RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .main-nav ul {
+        gap: var(--space-md);
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+}

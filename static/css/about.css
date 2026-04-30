@@ -1,0 +1,100 @@
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* MAIN TITLE */
+.about h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+/* PARAGRAPH */
+.about p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin-bottom: var(--space-lg);
+}
+
+/* SUB TITLES */
+.about h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-lg);
+    font-weight: 600;
+}
+
+/* SKILLS LIST */
+.about ul {
+    margin-bottom: var(--space-lg);
+    padding-left: 0;
+}
+
+/* LIST ITEM → BADGE STYLE */
+.about li {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: var(--space-sm);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.about li:hover {
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+/* =========================
+   SECTION SEPARATION
+========================= */
+
+.about h3 + p {
+    margin-top: var(--space-sm);
+}
+
+/* OPTIONAL VISUAL LINE */
+.about h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--color-primary);
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* =========================
+   TYPOGRAPHY IMPROVEMENT
+========================= */
+
+.about p:first-of-type {
+    font-size: 1.05rem;
+    color: var(--color-text);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .about {
+        padding: 0 var(--space-md);
+    }
+
+    .about h2 {
+        font-size: 1.6rem;
+    }
+
+    .about h3 {
+        font-size: 1.1rem;
+    }
+}
