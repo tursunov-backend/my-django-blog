@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════════════
+   blog_list.css — Blog ro'yxati sahifasi
+   Ishlatish: <link rel="stylesheet" href="{% static 'css/base.css' %}">
+              <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Page title ─────────────────────────────────────────── */
+main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+main > p {
+  font-size: 0.95rem;
+  color: var(--text-2);
+  margin-bottom: 1.5rem;
+}
+
+main hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25rem 0 2rem;
+}
+
+main h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* ─── Posts list ─────────────────────────────────────────── */
+main ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 680px;
+  margin-bottom: 2rem;
+}
+
+main ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  color: var(--text-2);
+  transition: border-color 0.2s;
+}
+main ul li:hover { border-color: var(--border-2); }
+
+main ul li strong {
+  color: var(--text);
+  font-weight: 500;
+  flex: 1;
+  min-width: 160px;
+}
+
+main ul li a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-3);
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+main ul li a:hover { color: var(--accent); border-color: var(--accent); background: rgba(232,213,163,0.05); }
+
+/* Like link special */
+main ul li a[href*="like"] {
+  color: var(--accent-hot);
+  border-color: rgba(255,107,53,0.25);
+}
+main ul li a[href*="like"]:hover { background: rgba(255,107,53,0.08); border-color: var(--accent-hot); }
+
+/* ─── Bottom nav ─────────────────────────────────────────── */
+main > nav {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-3);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+main > nav a {
+  color: var(--text-2);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: color 0.2s, border-color 0.2s;
+}
+main > nav a:hover { color: var(--accent); border-color: var(--accent); }

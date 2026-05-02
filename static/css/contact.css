@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════
+   contact.css — Bog'lanish sahifasi
+   Ishlatish: <link rel="stylesheet" href="{% static 'css/base.css' %}">
+              <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Contact Grid ───────────────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* ─── Contact Form ───────────────────────────────────────── */
+.contact-form-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 0.7rem 1rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-3); }
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 213, 163, 0.08);
+}
+
+.contact-form .newsletter-btn { align-self: flex-start; width: auto; padding: 0.7rem 2rem; }
+
+/* ─── Contact Info Aside ─────────────────────────────────── */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 80px;
+}
+
+.contact-channels { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-channel:hover { background: var(--surface-2); border-color: var(--border); }
+
+.channel-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.channel-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-3); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.15rem; }
+.channel-value { font-size: 0.85rem; color: var(--text-2); transition: color 0.2s; }
+.contact-channel:hover .channel-value { color: var(--text); }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-info { position: static; }
+}

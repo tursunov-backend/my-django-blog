@@ -11,5 +11,6 @@ urlpatterns = [
     path('maqola/yarat/', views.blog_create, name='blog-create'),
     path('maqola/<int:pk>/tahrir/', views.blog_edit, name='blog-edit'),
     path('maqola/<int:pk>/ochir/', views.blog_delete, name='blog-delete'),  
+    path('liked/', views.liked_posts, name='liked'),
 
 ]

@@ -1,9 +1,16 @@
+# templates/blog_list.html
+
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevMind — Bosh Sahifa</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/blog_list.css' %}" />
 </head>
 <body>
 
@@ -12,9 +19,8 @@
     <nav>
       <div class="logo"><span>#</span> DevMind</div>
       <ul class="nav-links">
-        <li><a href="/" class="active">Bosh sahifa</a></li>
-        <li><a href="/feed/">Lenta</a></li>
-        <li><a href="/liked/">Yoqtirilganlar</a></li>
+        <li><a href="{% url 'home' %}" class="active">Bosh sahifa</a></li>
+        <li><a href="{% url 'blog-list' %}">Lenta</a></li>
       </ul>
     </nav>
   </header>
@@ -40,8 +46,8 @@
         <strong>{{ post.title }}</strong>
 
         <!-- Post havolalari: batafsil va like -->
-        - <a href="/{{ post.id }}/">Batafsil</a>
-        | <a href="/like/{{ post.id }}/">❤️ Like</a>
+        - <a href="{% url 'post_detail' post.id %}">Batafsil</a>
+        | <a href="{% url 'like_post' post.id %}">❤️ Like</a>
       </li>
       {% endfor %}
       <!-- / Django for loop -->
@@ -53,9 +59,8 @@
 
     <!-- Navigatsiya linklari -->
     <nav>
-      <a href="/feed/">Lenta (Feed)</a>
+      <a href="{% url 'blog-list' %}">Lenta (Feed)</a>
       |
-      <a href="/liked/">Yoqtirilganlar</a>
     </nav>
     <!-- / Navigatsiya linklari -->
 

@@ -1,9 +1,15 @@
+# templates/blog_delete.html
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Postni o'chirish — DevMind</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/blog_delete.css' %}" />
 </head>
 <body>
 
@@ -12,9 +18,9 @@
     <nav>
       <div class="logo"><span>#</span> DevMind</div>
       <ul class="nav-links">
-        <li><a href="/">Bosh sahifa</a></li>
-        <li><a href="/feed/">Lenta</a></li>
-        <li><a href="/liked/">Yoqtirilganlar</a></li>
+        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+        <li><a href="{% url 'feed' %}">Lenta</a></li>
+        <li><a href="{% url 'liked' %}">Yoqtirilganlar</a></li>
       </ul>
     </nav>
   </header>
@@ -39,7 +45,7 @@
     <br>
 
     <!-- O'chirish formasi -->
-    <form method="POST" action="/{{ post.id }}/delete/">
+    <form method="POST" action="{% url 'delete_post' post.id %}">
 
       <!-- Django CSRF token (xavfsizlik uchun majburiy) -->
       {% csrf_token %}
@@ -47,7 +53,7 @@
       <!-- Tasdiqlash tugmalari -->
       <div class="form-actions">
         <button type="submit">🗑️ Ha, o'chirish</button>
-        <a href="/{{ post.id }}/">❌ Yo'q, bekor qilish</a>
+        <a href="{% url 'post_detail' post.id %}">❌ Yo'q, bekor qilish</a>
       </div>
       <!-- / Tasdiqlash tugmalari -->
 

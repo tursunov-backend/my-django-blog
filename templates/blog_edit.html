@@ -1,9 +1,16 @@
+# templates/blog_edit.html
+
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Postni tahrirlash — DevMind</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/blog_edit.css' %}" />
 </head>
 <body>
 
@@ -12,9 +19,9 @@
     <nav>
       <div class="logo"><span>#</span> DevMind</div>
       <ul class="nav-links">
-        <li><a href="/">Bosh sahifa</a></li>
-        <li><a href="/feed/">Lenta</a></li>
-        <li><a href="/liked/">Yoqtirilganlar</a></li>
+        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+        <li><a href="{% url 'feed' %}">Lenta</a></li>
+        <li><a href="{% url 'liked' %}">Yoqtirilganlar</a></li>
       </ul>
     </nav>
   </header>
@@ -30,7 +37,7 @@
     <!-- / Sahifa sarlavhasi -->
 
     <!-- Tahrirlash formasi -->
-    <form method="POST" action="/{{ post.id }}/edit/">
+    <form method="POST" action="{% url 'edit_post' post.id %}">
 
       <!-- Django CSRF token (xavfsizlik uchun majburiy) -->
       {% csrf_token %}
@@ -72,7 +79,7 @@
       <!-- Tugmalar -->
       <div class="form-actions">
         <button type="submit">💾 Saqlash</button>
-        <a href="/{{ post.id }}/">❌ Bekor qilish</a>
+        <a href="{% url 'post_detail' post.id %}">❌ Bekor qilish</a>
       </div>
       <!-- / Tugmalar -->
 

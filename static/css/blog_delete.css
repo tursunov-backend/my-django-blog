@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════
+   blog_delete.css — Postni o'chirish sahifasi
+   Ishlatish: <link rel="stylesheet" href="{% static 'css/base.css' %}">
+              <link rel="stylesheet" href="{% static 'css/blog_delete.css' %}">
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Page heading ───────────────────────────────────────── */
+main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+main hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25rem 0 2rem;
+}
+
+/* ─── Confirm box ────────────────────────────────────────── */
+.delete-confirm {
+  max-width: 560px;
+  background: rgba(255, 107, 53, 0.05);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-left: 4px solid var(--accent-hot);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.delete-confirm p {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* Warning line */
+.delete-confirm p:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-hot);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Post name line */
+.delete-confirm p:nth-child(2) {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-2);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+}
+.delete-confirm strong { color: var(--text); font-weight: 500; }
+
+/* Irreversible warning */
+.delete-confirm p:last-child {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Delete form ────────────────────────────────────────── */
+form {
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+}
+
+/* ─── Form actions ───────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Delete button — destructive red */
+.form-actions button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-hot);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.form-actions button[type="submit"]:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* Cancel link */
+.form-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-3);
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  transition: color 0.2s, border-color 0.2s;
+}
+.form-actions a:hover { color: var(--text); border-color: var(--text-3); }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .delete-confirm { padding: 1.25rem; }
+  form { padding: 1.25rem; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .form-actions button,
+  .form-actions a { justify-content: center; }
+}

@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════════════
+   blog_create.css — Yangi post yaratish sahifasi
+   Ishlatish: <link rel="stylesheet" href="{% static 'css/base.css' %}">
+              <link rel="stylesheet" href="{% static 'css/blog_create.css' %}">
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Page heading ───────────────────────────────────────── */
+main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+main hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25rem 0 2rem;
+}
+
+/* ─── Form wrapper ───────────────────────────────────────── */
+form {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+}
+
+/* ─── Form groups ────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-3); }
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 213, 163, 0.08);
+}
+
+/* ─── Form errors ────────────────────────────────────────── */
+.form-errors {
+  background: rgba(255, 107, 53, 0.07);
+  border: 1px solid rgba(255, 107, 53, 0.22);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--accent-hot);
+}
+.form-errors p { margin-bottom: 0.35rem; font-weight: 500; }
+.form-errors ul { list-style: disc; padding-left: 1.25rem; color: var(--text-2); font-size: 0.83rem; }
+
+/* ─── Form actions ───────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+.form-actions button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent);
+  color: var(--text-inv);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.15s;
+}
+.form-actions button[type="submit"]:hover { background: var(--accent-2); transform: translateY(-1px); }
+
+.form-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-3);
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  transition: color 0.2s, border-color 0.2s;
+}
+.form-actions a:hover { color: var(--text); border-color: var(--text-3); }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  form { padding: 1.25rem; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .form-actions button,
+  .form-actions a { justify-content: center; }
+}

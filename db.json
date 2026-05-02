@@ -1,0 +1,74 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Django nima?",
+      "slug": "django-nima",
+      "content": "Django — Python asosidagi kuchli web framework. U tez, xavfsiz va scalable web ilovalar yaratish imkonini beradi.",
+      "created_at": "2025-05-01"
+    },
+    {
+      "id": 2,
+      "title": "Python afzalliklari",
+      "slug": "python-afzalliklari",
+      "content": "Python sodda sintaksisga ega va backend, AI, data science sohalarida keng qo‘llaniladi.",
+      "created_at": "2025-05-02"
+    },
+    {
+      "id": 3,
+      "title": "REST API nima?",
+      "slug": "rest-api-nima",
+      "content": "REST API — client va server o‘rtasida ma’lumot almashish uchun ishlatiladi.",
+      "created_at": "2025-05-03"
+    },
+    {
+      "id": 4,
+      "title": "Frontend vs Backend",
+      "slug": "frontend-vs-backend",
+      "content": "Frontend foydalanuvchi interfeysi, backend esa server logikani boshqaradi.",
+      "created_at": "2025-05-04"
+    },
+    {
+      "id": 5,
+      "title": "Database nima?",
+      "slug": "database-nima",
+      "content": "Database — ma’lumotlarni saqlash va boshqarish tizimi.",
+      "created_at": "2025-05-05"
+    },
+    {
+      "id": 6,
+      "title": "PostgreSQL haqida",
+      "slug": "postgresql-haqida",
+      "content": "PostgreSQL kuchli va open-source relational database hisoblanadi.",
+      "created_at": "2025-05-06"
+    },
+    {
+      "id": 7,
+      "title": "Docker nima?",
+      "slug": "docker-nima",
+      "content": "Docker ilovalarni container ichida ishga tushirish imkonini beradi.",
+      "created_at": "2025-05-07"
+    },
+    {
+      "id": 8,
+      "title": "Git va GitHub",
+      "slug": "git-github",
+      "content": "Git — version control system, GitHub esa kodlarni saqlash platformasi.",
+      "created_at": "2025-05-08"
+    },
+    {
+      "id": 9,
+      "title": "API xavfsizligi",
+      "slug": "api-xavfsizligi",
+      "content": "API’ni himoya qilish uchun authentication va tokenlardan foydalaniladi.",
+      "created_at": "2025-05-09"
+    },
+    {
+      "id": 10,
+      "title": "Deployment nima?",
+      "slug": "deployment-nima",
+      "content": "Deployment — loyihani serverga joylash jarayoni.",
+      "created_at": "2025-05-10"
+    }
+  ]
+}
