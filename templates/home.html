@@ -1,4 +1,4 @@
-{% load static %}  
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="uz">
@@ -10,242 +10,139 @@
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══════════════════════════════════════ -->
-  <header>
-    <nav>
-      <div class="logo"><span>#</span> DevMind</div>
-      <ul class="nav-links">
-        <li><a href="{% url 'home' %}" class="active">Bosh sahifa</a></li>
+<header>
+  <nav>
+    <div class="logo"><span>#</span> DevMind</div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}" class="active">Bosh sahifa</a></li>
+      <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
+      <li><a href="{% url 'projects' %}">Loyihalar</a></li>
+      <li><a href="{% url 'about' %}">Haqimda</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Bog'lanish</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Backend Developer & Texnik Blogger</div>
+    <h1 class="hero-title">
+      Kod yozaman,<br />
+      <em>fikr ulashaman,</em><br />
+      o'sib boraman.
+    </h1>
+    <p class="hero-desc">
+      Salom! Men — Abdujalol. Backend developer va texnik blog muallifi.
+    </p>
+    <div class="hero-actions">
+      <a href="{% url 'blog-list' %}" class="btn-primary">Maqolalarni o'qi</a>
+      <a href="{% url 'about' %}" class="btn-ghost">Haqimda →</a>
+    </div>
+  </div>
+
+  <!-- FIX: ortiqcha div olib tashlandi -->
+  <div class="hero-skills">
+    <span class="skill-badge">Python</span>
+    <span class="skill-badge">Django</span>
+    <span class="skill-badge">FastAPI</span>
+    <span class="skill-badge">PostgreSQL</span>
+    <span class="skill-badge">AWS</span>
+    <span class="skill-badge">Git</span>
+    <span class="skill-badge">REST API</span>
+  </div>
+</section>
+
+<div class="section-header">
+  <div>
+    <div class="section-label">So'nggi yozuvlar</div>
+    <h2 class="section-title">Yangi maqolalar</h2>
+  </div>
+  <a href="{% url 'blog-list' %}" class="view-all">Barchasini ko'rish →</a>
+</div>
+
+<div class="content-grid">
+
+<article>
+
+{% for article in articles %}
+
+<section class="post-card">
+  <div>
+    <div class="post-meta">
+      <span class="post-category">{{ article.category }}</span>
+      <span class="post-date">{{ article.created_at }}</span>
+      <span class="read-time">{{ article.read_time }} o'qish</span>
+    </div>
+
+    <!-- FIX: to‘g‘ri link -->
+    <a href="{% url 'blog-detail' article.slug %}" class="post-title">
+      {{ article.title }}
+    </a>
+
+    <p class="post-excerpt">
+      {{ article.content|truncatechars:120 }}
+    </p>
+
+    <div class="post-footer">
+      <span class="read-time">{{ article.read_time }} o'qish</span>
+
+      <div class="post-tags">
+        {% for tag in article.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+  <!-- FIX: dynamic number -->
+  <div class="post-number">
+    {{ forloop.counter|stringformat:"02d" }}
+  </div>
+</section>
+
+{% endfor %}
+
+</article>
+
+<aside>
+
+<div class="aside-widget">
+  <div class="widget-title">Muallif haqida</div>
+  <div class="about-avatar">A</div>
+  <div class="about-name">Abdujalol Tursunov</div>
+  <div class="about-role">Backend Developer</div>
+  <p class="about-bio">
+    Python va zamonaviy backend texnologiyalar bo'yicha tajribali dasturchi.
+  </p>
+
+  <!-- FIX: tashqi linklar -->
+  <div class="social-links">
+    <a class="social-link" href="https://github.com/" target="_blank">gh</a>
+    <a class="social-link" href="https://t.me/" target="_blank">tg</a>
+    <a class="social-link" href="https://linkedin.com/" target="_blank">in</a>
+    <a class="social-link" href="https://twitter.com/" target="_blank">tw</a>
+  </div>
+</div>
+
+</aside>
+
+</div>
+
+</main>
+
+<footer>
+  <nav>
+    <div class="footer-top">
+      <div class="footer-logo"><span>#</span> DevMind</div>
+      <ul class="footer-links">
+        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
         <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
         <li><a href="{% url 'projects' %}">Loyihalar</a></li>
-        <li><a href="{% url 'about' %}">Haqimda</a></li>
-        <li><a href="{% url 'contact' %}" class="nav-cta">Bog'lanish</a></li>
       </ul>
-    </nav>
-  </header>
-  <!-- ═══ / HEADER ════════════════════════════════════ -->
-
-  <!-- ═══ MAIN ═════════════════════════════════════════ -->
-  <main>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-tag">Backend Developer &amp; Texnik Blogger</div>
-        <h1 class="hero-title">
-          Kod yozaman,<br />
-          <em>fikr ulashaman,</em><br />
-          o'sib boraman.
-        </h1>
-        <p class="hero-desc">
-          Salom! Men — Abdujalol. Backend ishlab chiquvchi va texnik blog muallifi.
-          Bu yerda JavaScript, React, UI/UX va zamonaviy web texnologiyalar haqida
-          chuqur maqolalar yozaman.
-        </p>
-        <div class="hero-actions">
-          <a href="{% url 'blog-list' %}" class="btn-primary">Maqolalarni o'qi</a>
-          <a href="{% url 'about' %}" class="btn-ghost">Haqimda ko'proq →</a>
-        </div>
-      </div>
-
-      <!-- Hero o'ng tomon: statistika va skills -->
-      <div class="hero-side">
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">48+</div>
-            <div class="stat-label">Nashr etilgan maqola</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">3.2k</div>
-            <div class="stat-label">Oylik o'quvchilar</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">5 yil</div>
-            <div class="stat-label">Backend tajribasi</div>
-          </div>
-        </div>
-        <div class="hero-skills">
-          <span class="skill-badge">Python</span>
-          <span class="skill-badge">Django</span>
-          <span class="skill-badge">PostgreSQL</span>
-          <span class="skill-badge">Docker</span>
-          <span class="skill-badge">AWS</span>
-          <span class="skill-badge">Git</span>
-          <span class="skill-badge">Figma</span>
-          <span class="skill-badge">REST API</span>
-        </div>
-      </div>
-    </section>
-    <!-- / Hero Section -->
-
-    <!-- So'nggi maqolalar sarlavhasi -->
-    <div class="section-header">
-      <div>
-        <div class="section-label">So'nggi yozuvlar</div>
-        <h2 class="section-title">Yangi maqolalar</h2>
-      </div>
-      <a href="{% url 'blog-list' %}" class="view-all">Barchasini ko'rish →</a>
     </div>
-
-    <!-- Maqolalar + Aside grid -->
-    <div class="content-grid">
-
-      <!-- Maqolalar ro'yxati -->
-      <article>
-
-        <!-- Maqola 01 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">React</span>
-              <span class="post-date">28 Aprel, 2025</span>
-            </div>
-            <a href="#" class="post-title">React 19-da yangi xususiyatlar: Server Components va Actions</a>
-            <p class="post-excerpt">
-              React jamoasi 19-versiyada bir qator inqilobiy o'zgarishlar kiritdi. Server Components,
-              yangi Actions API va optimistik yangilanishlar — bularning barchasi loyiha arxitekturasini
-              butunlay o'zgartirishi mumkin.
-            </p>
-            <div class="post-footer">
-              <span class="read-time">8 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#react</span>
-                <span class="tag">#javascript</span>
-                <span class="tag">#frontend</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">01</div>
-        </section>
-        <!-- / Maqola 01 -->
-
-        <!-- Maqola 02 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">CSS</span>
-              <span class="post-date">15 Aprel, 2025</span>
-            </div>
-            <a href="#" class="post-title">CSS Grid va Flexbox: qachon qaysi birini ishlatish kerak?</a>
-            <p class="post-excerpt">
-              Ko'p dasturchilarda bu ikki tizim orasida qayerda chek tortilishi noaniq bo'ladi.
-              Amaliy misollar orqali qachon Grid, qachon Flexbox optimalligi haqida batafsil ko'rib chiqamiz.
-            </p>
-            <div class="post-footer">
-              <span class="read-time">6 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#css</span>
-                <span class="tag">#layout</span>
-                <span class="tag">#webdesign</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">02</div>
-        </section>
-        <!-- / Maqola 02 -->
-
-        <!-- Maqola 03 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">Performance</span>
-              <span class="post-date">3 Aprel, 2025</span>
-            </div>
-            <a href="#" class="post-title">Web sayt tezligini oshirish: Core Web Vitals to'liq qo'llanma</a>
-            <p class="post-excerpt">
-              LCP, CLS va FID metrikalari faqat raqam emas — ular foydalanuvchi tajribasining
-              bevosita o'lchovidir. Saytingiz ball olishi uchun nima qilish kerakligini ko'rsataman.
-            </p>
-            <div class="post-footer">
-              <span class="read-time">11 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#performance</span>
-                <span class="tag">#seo</span>
-                <span class="tag">#vitals</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">03</div>
-        </section>
-        <!-- / Maqola 03 -->
-
-      </article>
-      <!-- / Maqolalar ro'yxati -->
-
-      <!-- Yon panel (Aside) -->
-      <aside>
-
-        <!-- Widget: Muallif haqida -->
-        <div class="aside-widget">
-          <div class="widget-title">Muallif haqida</div>
-          <div class="about-avatar">A</div>
-          <div class="about-name">Abdujalol Tursunov</div>
-          <div class="about-role">Backend Developer</div>
-          <p class="about-bio">
-            Samarqandda yashab, ishlaydi. Python va zamonaviy backend texnologiyalar
-            bo'yicha tajribali dasturchi. UI/UX va performancega qiziquvchi.
-          </p>
-          <div class="social-links">
-            <a class="social-link" href="#" title="GitHub">gh</a>
-            <a class="social-link" href="#" title="Telegram">tg</a>
-            <a class="social-link" href="#" title="LinkedIn">in</a>
-            <a class="social-link" href="#" title="Twitter">tw</a>
-          </div>
-        </div>
-        <!-- / Widget: Muallif haqida -->
-
-        <!-- Widget: Mavzular -->
-        <div class="aside-widget">
-          <div class="widget-title">Mavzular</div>
-          <div class="topic-list">
-            <a href="#" class="topic-item">JavaScript <span class="topic-count">18</span></a>
-            <a href="#" class="topic-item">React <span class="topic-count">14</span></a>
-            <a href="#" class="topic-item">CSS &amp; Design <span class="topic-count">9</span></a>
-            <a href="#" class="topic-item">Performance <span class="topic-count">6</span></a>
-            <a href="#" class="topic-item">Karyera <span class="topic-count">4</span></a>
-          </div>
-        </div>
-        <!-- / Widget: Mavzular -->
-
-        <!-- Widget: Newsletter -->
-        <div class="aside-widget">
-          <div class="widget-title">Newsletter</div>
-          <div class="newsletter-form">
-            <p>Yangi maqolalar chiqishi bilan emailingizga xabar oling.</p>
-            <input class="newsletter-input" type="email" placeholder="email@manzil.uz" />
-            <button class="newsletter-btn">Obuna bo'lish</button>
-          </div>
-        </div>
-        <!-- / Widget: Newsletter -->
-
-      </aside>
-      <!-- / Yon panel (Aside) -->
-
-    </div>
-    <!-- / Maqolalar + Aside grid -->
-
-  </main>
-  <!-- ═══ / MAIN ════════════════════════════════════════ -->
-
-  <!-- ═══ FOOTER ════════════════════════════════════════ -->
-  <footer>
-    <nav>
-      <div class="footer-top">
-        <div class="footer-logo"><span>#</span> DevMind</div>
-        <ul class="footer-links">
-          <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
-          <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
-          <li><a href="{% url 'projects' %}">Loyihalar</a></li>
-          <li><a href="#">RSS</a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan. <span>♥</span></div>
-        <div class="footer-built">Toshkent, O'zbekiston</div>
-      </div>
-    </nav>
-  </footer>
-  <!-- ═══ / FOOTER ══════════════════════════════════════ -->
+  </nav>
+</footer>
 
 </body>
 </html>

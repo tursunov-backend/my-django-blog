@@ -5,70 +5,100 @@
       "title": "Django nima?",
       "slug": "django-nima",
       "content": "Django — Python asosidagi kuchli web framework. U tez, xavfsiz va scalable web ilovalar yaratish imkonini beradi.",
-      "created_at": "2025-05-01"
+      "category": "Backend",
+      "created_at": "2025-05-01",
+      "read_time": "8 min",
+      "tags": ["django", "python", "backend"]
     },
     {
       "id": 2,
       "title": "Python afzalliklari",
       "slug": "python-afzalliklari",
       "content": "Python sodda sintaksisga ega va backend, AI, data science sohalarida keng qo‘llaniladi.",
-      "created_at": "2025-05-02"
+      "category": "Programming",
+      "created_at": "2025-05-02",
+      "read_time": "6 min",
+      "tags": ["python", "ai", "backend"]
     },
     {
       "id": 3,
       "title": "REST API nima?",
       "slug": "rest-api-nima",
       "content": "REST API — client va server o‘rtasida ma’lumot almashish uchun ishlatiladi.",
-      "created_at": "2025-05-03"
+      "category": "API",
+      "created_at": "2025-05-03",
+      "read_time": "5 min",
+      "tags": ["api", "rest", "backend"]
     },
     {
       "id": 4,
       "title": "Frontend vs Backend",
       "slug": "frontend-vs-backend",
       "content": "Frontend foydalanuvchi interfeysi, backend esa server logikani boshqaradi.",
-      "created_at": "2025-05-04"
+      "category": "Web",
+      "created_at": "2025-05-04",
+      "read_time": "7 min",
+      "tags": ["frontend", "backend", "web"]
     },
     {
       "id": 5,
       "title": "Database nima?",
       "slug": "database-nima",
       "content": "Database — ma’lumotlarni saqlash va boshqarish tizimi.",
-      "created_at": "2025-05-05"
+      "category": "Database",
+      "created_at": "2025-05-05",
+      "read_time": "6 min",
+      "tags": ["database", "sql", "backend"]
     },
     {
       "id": 6,
       "title": "PostgreSQL haqida",
       "slug": "postgresql-haqida",
       "content": "PostgreSQL kuchli va open-source relational database hisoblanadi.",
-      "created_at": "2025-05-06"
+      "category": "Database",
+      "created_at": "2025-05-06",
+      "read_time": "7 min",
+      "tags": ["postgresql", "sql", "database"]
     },
     {
       "id": 7,
       "title": "Docker nima?",
       "slug": "docker-nima",
       "content": "Docker ilovalarni container ichida ishga tushirish imkonini beradi.",
-      "created_at": "2025-05-07"
+      "category": "DevOps",
+      "created_at": "2025-05-07",
+      "read_time": "5 min",
+      "tags": ["docker", "devops", "container"]
     },
     {
       "id": 8,
       "title": "Git va GitHub",
       "slug": "git-github",
       "content": "Git — version control system, GitHub esa kodlarni saqlash platformasi.",
-      "created_at": "2025-05-08"
+      "category": "Tools",
+      "created_at": "2025-05-08",
+      "read_time": "4 min",
+      "tags": ["git", "github", "tools"]
     },
     {
       "id": 9,
       "title": "API xavfsizligi",
       "slug": "api-xavfsizligi",
       "content": "API’ni himoya qilish uchun authentication va tokenlardan foydalaniladi.",
-      "created_at": "2025-05-09"
+      "category": "Security",
+      "created_at": "2025-05-09",
+      "read_time": "6 min",
+      "tags": ["security", "api", "auth"]
     },
     {
       "id": 10,
       "title": "Deployment nima?",
       "slug": "deployment-nima",
       "content": "Deployment — loyihani serverga joylash jarayoni.",
-      "created_at": "2025-05-10"
+      "category": "DevOps",
+      "created_at": "2025-05-10",
+      "read_time": "5 min",
+      "tags": ["deployment", "server", "devops"]
     }
   ]
 }

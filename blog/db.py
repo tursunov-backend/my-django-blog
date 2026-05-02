@@ -20,6 +20,10 @@ class Database:
 
     def get_articles(self):
         return self.read().get('articles', [])
+    
+    def get_latest_articles(self, count=3):
+        articles = self.get_articles()
+        return articles[:count]
 
     def get_article_by_slug(self, slug):
         return next(

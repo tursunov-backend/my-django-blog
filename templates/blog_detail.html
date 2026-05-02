@@ -46,7 +46,7 @@
           chuqur maqolalar yozaman.
         </p>
         <div class="hero-actions">
-          <a href="{% url 'posts' %}" class="btn-primary">Maqolalarni o'qi</a>
+          <a href="{% url 'blog-list' %}" class="btn-primary">>Maqolalarni o'qi</a>
           <a href="{% url 'about' %}" class="btn-ghost">Haqimda ko'proq →</a>
         </div>
       </div>
@@ -87,7 +87,9 @@
         <div class="section-label">So'nggi yozuvlar</div>
         <h2 class="section-title">Yangi maqolalar</h2>
       </div>
-      <a href="{% url 'posts' %}" class="view-all">Barchasini ko'rish →</a>
+      <a href="{% url 'blog-list' %}" class="view-all">
+    Barchasini ko‘rish →
+</a>
     </div>
 
     <!-- Maqolalar + Aside grid -->
@@ -96,6 +98,7 @@
       <!-- Maqolalar ro'yxati -->
       <article>
 
+        {% for article in articles %}
         <!-- Maqola 01 -->
         <section class="post-card">
           <div>
@@ -103,11 +106,12 @@
               <span class="post-category">React</span>
               <span class="post-date">28 Aprel, 2025</span>
             </div>
-            <a href="#" class="post-title">React 19-da yangi xususiyatlar: Server Components va Actions</a>
+            <a href="{% url 'article_detail' article.id %}" class="post-title">
+  {{ article.title }}
+</a>
+            
             <p class="post-excerpt">
-              React jamoasi 19-versiyada bir qator inqilobiy o'zgarishlar kiritdi. Server Components,
-              yangi Actions API va optimistik yangilanishlar — bularning barchasi loyiha arxitekturasini
-              butunlay o'zgartirishi mumkin.
+              {{ article.content|truncatewords:20 }}
             </p>
             <div class="post-footer">
               <span class="read-time">8 min o'qish</span>
@@ -121,56 +125,7 @@
           <div class="post-number">01</div>
         </section>
         <!-- / Maqola 01 -->
-
-        <!-- Maqola 02 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">CSS</span>
-              <span class="post-date">15 Aprel, 2025</span>
-            </div>
-            <a href="#" class="post-title">CSS Grid va Flexbox: qachon qaysi birini ishlatish kerak?</a>
-            <p class="post-excerpt">
-              Ko'p dasturchilarda bu ikki tizim orasida qayerda chek tortilishi noaniq bo'ladi.
-              Amaliy misollar orqali qachon Grid, qachon Flexbox optimalligi haqida batafsil ko'rib chiqamiz.
-            </p>
-            <div class="post-footer">
-              <span class="read-time">6 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#css</span>
-                <span class="tag">#layout</span>
-                <span class="tag">#webdesign</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">02</div>
-        </section>
-        <!-- / Maqola 02 -->
-
-        <!-- Maqola 03 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">Performance</span>
-              <span class="post-date">3 Aprel, 2025</span>
-            </div>
-            <a href="#" class="post-title">Web sayt tezligini oshirish: Core Web Vitals to'liq qo'llanma</a>
-            <p class="post-excerpt">
-              LCP, CLS va FID metrikalari faqat raqam emas — ular foydalanuvchi tajribasining
-              bevosita o'lchovidir. Saytingiz ball olishi uchun nima qilish kerakligini ko'rsataman.
-            </p>
-            <div class="post-footer">
-              <span class="read-time">11 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#performance</span>
-                <span class="tag">#seo</span>
-                <span class="tag">#vitals</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">03</div>
-        </section>
-        <!-- / Maqola 03 -->
+        {% endfor %}
 
       </article>
       <!-- / Maqolalar ro'yxati -->
@@ -185,14 +140,12 @@
           <div class="about-name">Abdujalol Tursunov</div>
           <div class="about-role">Backend Developer</div>
           <p class="about-bio">
-            Toshkentda yashab, ishlaydi. Python va zamonaviy backend texnologiyalar
+            Samarqandda yashab, ishlaydi. Python va zamonaviy backend texnologiyalar
             bo'yicha tajribali dasturchi. UI/UX va performancega qiziquvchi.
           </p>
           <div class="social-links">
-            <a class="social-link" href="#" title="GitHub">gh</a>
-            <a class="social-link" href="#" title="Telegram">tg</a>
-            <a class="social-link" href="#" title="LinkedIn">in</a>
-            <a class="social-link" href="#" title="Twitter">tw</a>
+            <a class="social-link" href="https://github.com/tursunov-backend" title="GitHub">gh</a>
+            <a class="social-link" href="https://t.me/tursunoff_19" title="Telegram">tg</a>
           </div>
         </div>
         <!-- / Widget: Muallif haqida -->
@@ -244,7 +197,7 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan. <span>♥</span></div>
-        <div class="footer-built">Toshkent, O'zbekiston</div>
+        <div class="footer-built">Samarqand, O'zbekiston</div>
       </div>
     </nav>
   </footer>

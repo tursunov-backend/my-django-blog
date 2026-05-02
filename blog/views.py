@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
-
+from django.shortcuts import render, get_object_or_404
+from .models import Article
 from .db import Database
 
 db = Database()
 
 def home_page(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name='home.html')
+    articles = db.get_latest_articles()
+    return render(request=request, template_name='home.html', context={'articles': articles})
 
 
 def blog_list(request: HttpRequest) -> HttpResponse:
@@ -104,6 +106,18 @@ def blog_list(request):
     return render(request, 'blog_list.html', {'articles': articles})
 
 
+
 def blog_detail(request, slug):
-    article = db.get_article_by_slug(slug)
+    article = get_object_or_404(Article, slug=slug)
     return render(request, 'blog_detail.html', {'article': article})
+
+def articles_page(request):
+    articles = db.get_articles()
+    return render(request=request, template_name='articles.html', context={'articles': articles})
+
+def article_detail_page(request: HttpRequest, slug: str)-> HttpResponse:
+    article = db.get_article_by_slug(slug)
+    return render(request=request, template_name='detailes.html', context={'article': article})
+
+def rss_view(request: HttpRequest) -> HttpResponse:
+    return HttpResponse("RSS page")
