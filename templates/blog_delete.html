@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postni o'chirish — DevMind</title>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════ -->
+  <header>
+    <nav>
+      <div class="logo"><span>#</span> DevMind</div>
+      <ul class="nav-links">
+        <li><a href="/">Bosh sahifa</a></li>
+        <li><a href="/feed/">Lenta</a></li>
+        <li><a href="/liked/">Yoqtirilganlar</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ═══ / HEADER ════════════════════════════════════ -->
+
+  <!-- ═══ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- Sahifa sarlavhasi -->
+    <h1>Postni o'chirish</h1>
+    <hr>
+    <!-- / Sahifa sarlavhasi -->
+
+    <!-- Tasdiqlash xabari -->
+    <div class="delete-confirm">
+      <p>⚠️ Haqiqatan ham bu postni o'chirmoqchimisiz?</p>
+      <p>Post nomi: <strong>{{ post.title }}</strong></p>
+      <p>Bu amalni qaytarib bo'lmaydi!</p>
+    </div>
+    <!-- / Tasdiqlash xabari -->
+
+    <br>
+
+    <!-- O'chirish formasi -->
+    <form method="POST" action="/{{ post.id }}/delete/">
+
+      <!-- Django CSRF token (xavfsizlik uchun majburiy) -->
+      {% csrf_token %}
+
+      <!-- Tasdiqlash tugmalari -->
+      <div class="form-actions">
+        <button type="submit">🗑️ Ha, o'chirish</button>
+        <a href="/{{ post.id }}/">❌ Yo'q, bekor qilish</a>
+      </div>
+      <!-- / Tasdiqlash tugmalari -->
+
+    </form>
+    <!-- / O'chirish formasi -->
+
+  </main>
+  <!-- ═══ / MAIN ════════════════════════════════════════ -->
+
+  <!-- ═══ FOOTER ════════════════════════════════════════ -->
+  <footer>
+    <nav>
+      <div class="footer-logo"><span>#</span> DevMind</div>
+      <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan.</div>
+    </nav>
+  </footer>
+  <!-- ═══ / FOOTER ══════════════════════════════════════ -->
+
+</body>
+</html>

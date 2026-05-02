@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yangi post — DevMind</title>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════ -->
+  <header>
+    <nav>
+      <div class="logo"><span>#</span> DevMind</div>
+      <ul class="nav-links">
+        <li><a href="/">Bosh sahifa</a></li>
+        <li><a href="/feed/">Lenta</a></li>
+        <li><a href="/liked/">Yoqtirilganlar</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ═══ / HEADER ════════════════════════════════════ -->
+
+  <!-- ═══ MAIN ═════════════════════════════════════════ -->
+  <main>
+
+    <!-- Sahifa sarlavhasi -->
+    <h1>Yangi post yaratish</h1>
+    <hr>
+    <!-- / Sahifa sarlavhasi -->
+
+    <!-- Yaratish formasi -->
+    <form method="POST" action="/create/">
+
+      <!-- Django CSRF token (xavfsizlik uchun majburiy) -->
+      {% csrf_token %}
+
+      <!-- Sarlavha maydoni -->
+      <div class="form-group">
+        <label for="title">Sarlavha:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Post sarlavhasini kiriting"
+          required
+        />
+      </div>
+      <!-- / Sarlavha maydoni -->
+
+      <!-- Matn maydoni -->
+      <div class="form-group">
+        <label for="content">Matn:</label>
+        <textarea
+          id="content"
+          name="content"
+          rows="10"
+          placeholder="Post matnini kiriting..."
+          required
+        ></textarea>
+      </div>
+      <!-- / Matn maydoni -->
+
+      <!-- Forma xatolari (Django validatsiya) -->
+      {% if form.errors %}
+      <div class="form-errors">
+        <p>⚠️ Xatoliklar mavjud:</p>
+        {{ form.errors }}
+      </div>
+      {% endif %}
+      <!-- / Forma xatolari -->
+
+      <!-- Tugmalar -->
+      <div class="form-actions">
+        <button type="submit">✅ Saqlash</button>
+        <a href="/">❌ Bekor qilish</a>
+      </div>
+      <!-- / Tugmalar -->
+
+    </form>
+    <!-- / Yaratish formasi -->
+
+  </main>
+  <!-- ═══ / MAIN ════════════════════════════════════════ -->
+
+  <!-- ═══ FOOTER ════════════════════════════════════════ -->
+  <footer>
+    <nav>
+      <div class="footer-logo"><span>#</span> DevMind</div>
+      <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan.</div>
+    </nav>
+  </footer>
+  <!-- ═══ / FOOTER ══════════════════════════════════════ -->
+
+</body>
+</html>
