@@ -54,7 +54,6 @@ header {
   border-bottom: 2px solid var(--accent);
 }
 
-/* Navigatsiya wrapper */
 header nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -65,7 +64,6 @@ header nav {
   height: 64px;
 }
 
-/* Logo */
 .logo {
   font-family: var(--mono);
   font-size: 1.1rem;
@@ -81,7 +79,6 @@ header nav {
   font-size: 1.4rem;
 }
 
-/* Nav havolalar ro'yxati */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -103,7 +100,6 @@ header nav {
   color: var(--accent);
 }
 
-/* Bog'lanish tugmasi */
 .nav-cta {
   background: var(--accent);
   color: var(--white) !important;
@@ -117,12 +113,23 @@ header nav {
 
 
 /* ═══════════════════════════════════════════════════════
-   HERO SECTION
+   MAIN — padding yo'q (hero full ekran uchun)
+   ═══════════════════════════════════════════════════════ */
+
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   HERO — to'liq ekran
    ═══════════════════════════════════════════════════════ */
 
 .hero {
   background: var(--ink);
-  min-height: 92vh;
+  min-height: 100vh;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 420px;
   align-items: center;
@@ -130,7 +137,6 @@ header nav {
   overflow: hidden;
 }
 
-/* Vertikal ajratuvchi chiziq */
 .hero::before {
   content: '';
   position: absolute;
@@ -141,14 +147,12 @@ header nav {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Hero chap tomon: matn */
 .hero-content {
   padding: 6rem 4rem 6rem 8rem;
   position: relative;
   z-index: 2;
 }
 
-/* Hero teg (kichik sarlavha) */
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -169,7 +173,6 @@ header nav {
   background: var(--accent);
 }
 
-/* Asosiy sarlavha */
 .hero-title {
   font-family: var(--serif);
   font-size: clamp(3rem, 5vw, 5.5rem);
@@ -184,7 +187,6 @@ header nav {
   color: var(--accent);
 }
 
-/* Tavsif matni */
 .hero-desc {
   font-size: 1rem;
   color: #888;
@@ -193,14 +195,12 @@ header nav {
   margin-bottom: 2.5rem;
 }
 
-/* Tugmalar guruhi */
 .hero-actions {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-/* Asosiy tugma */
 .btn-primary {
   background: var(--accent);
   color: var(--white);
@@ -220,7 +220,6 @@ header nav {
   box-shadow: 0 8px 24px rgba(200, 75, 49, 0.4);
 }
 
-/* Ghost (shaffof) tugma */
 .btn-ghost {
   color: #666;
   font-size: 0.8rem;
@@ -238,76 +237,46 @@ header nav {
   color: var(--white);
 }
 
-/* Hero o'ng tomon: statistika + skills */
-.hero-side {
+/* Hero o'ng: skills */
+.hero-skills {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem 3rem;
-  position: relative;
-  z-index: 2;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Statistika ro'yxati */
-.hero-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-bottom: 3rem;
-}
-
-/* Statistika elementi */
-.stat {
-  border-left: 2px solid var(--accent);
-  padding-left: 1.2rem;
-}
-
-.stat-num {
-  font-family: var(--mono);
-  font-size: 2.2rem;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.stat-label {
-  font-size: 0.72rem;
-  color: #555;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Skill badge'lar */
-.hero-skills {
-  display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  padding: 4rem 3rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  align-content: flex-start;
 }
 
 .skill-badge {
   font-family: var(--mono);
   font-size: 0.7rem;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #666;
   border-radius: 2px;
   letter-spacing: 0.05em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.skill-badge:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* ═══════════════════════════════════════════════════════
-   MAIN (umumiy)
+   CONTENT (hero pastidagi qism)
    ═══════════════════════════════════════════════════════ */
 
-main {
+.content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5rem 2rem;
 }
 
-/* Bo'lim sarlavha qatori */
 .section-header {
   display: flex;
   align-items: baseline;
@@ -317,7 +286,6 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
-/* Kichik label (So'nggi yozuvlar) */
 .section-label {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -326,7 +294,6 @@ main {
   color: var(--muted);
 }
 
-/* Bo'lim katta sarlavhasi */
 .section-title {
   font-family: var(--serif);
   font-size: 2.2rem;
@@ -335,7 +302,6 @@ main {
   margin-top: 4px;
 }
 
-/* "Barchasini ko'rish" havolasi */
 .view-all {
   font-size: 0.75rem;
   font-weight: 700;
@@ -349,7 +315,6 @@ main {
   text-decoration: underline;
 }
 
-/* Maqolalar + aside grid */
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -359,7 +324,7 @@ main {
 
 
 /* ═══════════════════════════════════════════════════════
-   POST CARD (maqola kartasi)
+   POST CARD
    ═══════════════════════════════════════════════════════ */
 
 article {
@@ -368,7 +333,6 @@ article {
   gap: 2px;
 }
 
-/* Kartaning o'zi */
 section.post-card {
   background: var(--white);
   border: 1px solid var(--line);
@@ -380,15 +344,13 @@ section.post-card {
   align-items: start;
   transition: border-color 0.2s, box-shadow 0.2s;
   position: relative;
+  margin-bottom: 2px;
 }
 
-/* Chap aksent chiziq (hover da chiqadi) */
 section.post-card::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 0; top: 0; bottom: 0;
   width: 3px;
   background: transparent;
   border-radius: 3px 0 0 3px;
@@ -404,7 +366,6 @@ section.post-card:hover::before {
   background: var(--accent);
 }
 
-/* Post meta: kategoriya + sana */
 .post-meta {
   display: flex;
   gap: 1rem;
@@ -412,7 +373,6 @@ section.post-card:hover::before {
   margin-bottom: 0.6rem;
 }
 
-/* Kategoriya badge */
 .post-category {
   font-family: var(--mono);
   font-size: 0.65rem;
@@ -424,14 +384,12 @@ section.post-card:hover::before {
   border-radius: 2px;
 }
 
-/* Sana */
 .post-date {
   font-family: var(--mono);
   font-size: 0.68rem;
   color: var(--muted);
 }
 
-/* Post sarlavhasi (link) */
 .post-title {
   font-family: var(--serif);
   font-size: 1.45rem;
@@ -443,11 +401,8 @@ section.post-card:hover::before {
   display: block;
 }
 
-.post-title:hover {
-  color: var(--accent);
-}
+.post-title:hover { color: var(--accent); }
 
-/* Qisqa matn */
 .post-excerpt {
   font-size: 0.88rem;
   color: var(--muted);
@@ -455,28 +410,24 @@ section.post-card:hover::before {
   margin-bottom: 1rem;
 }
 
-/* Post pastki qismi: o'qish vaqti + teglar */
 .post-footer {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
 
-/* O'qish vaqti */
 .read-time {
   font-family: var(--mono);
   font-size: 0.68rem;
   color: var(--muted);
 }
 
-/* Teglar guruhi */
 .post-tags {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
 
-/* Teg */
 .tag {
   font-family: var(--mono);
   font-size: 0.62rem;
@@ -486,7 +437,6 @@ section.post-card:hover::before {
   border-radius: 2px;
 }
 
-/* Tartib raqami (01, 02...) */
 .post-number {
   font-family: var(--mono);
   font-size: 2.5rem;
@@ -498,7 +448,7 @@ section.post-card:hover::before {
 
 
 /* ═══════════════════════════════════════════════════════
-   ASIDE (yon panel)
+   ASIDE
    ═══════════════════════════════════════════════════════ */
 
 aside {
@@ -509,7 +459,6 @@ aside {
   gap: 2rem;
 }
 
-/* Widget qutisi */
 .aside-widget {
   background: var(--white);
   border: 1px solid var(--line);
@@ -517,7 +466,6 @@ aside {
   padding: 1.5rem;
 }
 
-/* Widget sarlavhasi */
 .widget-title {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -529,10 +477,8 @@ aside {
   border-bottom: 1px solid var(--line);
 }
 
-/* Muallif avatar doirasi */
 .about-avatar {
-  width: 56px;
-  height: 56px;
+  width: 56px; height: 56px;
   background: var(--ink);
   border-radius: 50%;
   display: flex;
@@ -544,7 +490,6 @@ aside {
   margin-bottom: 1rem;
 }
 
-/* Muallif ismi */
 .about-name {
   font-family: var(--serif);
   font-size: 1.25rem;
@@ -553,7 +498,6 @@ aside {
   margin-bottom: 0.4rem;
 }
 
-/* Muallif roli */
 .about-role {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -563,14 +507,12 @@ aside {
   margin-bottom: 0.8rem;
 }
 
-/* Muallif haqida qisqa matn */
 .about-bio {
   font-size: 0.82rem;
   color: var(--muted);
   line-height: 1.65;
 }
 
-/* Ijtimoiy tarmoqlar */
 .social-links {
   display: flex;
   gap: 10px;
@@ -578,8 +520,7 @@ aside {
 }
 
 .social-link {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 2px;
@@ -597,94 +538,6 @@ aside {
   background: var(--ink);
   color: var(--white);
   border-color: var(--ink);
-}
-
-/* Mavzular ro'yxati */
-.topic-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.topic-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--cream);
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.topic-item:last-child {
-  border-bottom: none;
-}
-
-.topic-item:hover {
-  color: var(--accent);
-}
-
-/* Mavzu soni */
-.topic-count {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--muted);
-  background: var(--cream);
-  padding: 2px 8px;
-  border-radius: 10px;
-}
-
-/* Newsletter widget */
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.newsletter-form p {
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 4px;
-}
-
-/* Email input */
-.newsletter-input {
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--ink);
-  border-radius: 2px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.newsletter-input:focus {
-  border-color: var(--ink);
-}
-
-/* Obuna tugmasi */
-.newsletter-btn {
-  padding: 10px;
-  background: var(--ink);
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.newsletter-btn:hover {
-  background: var(--accent);
 }
 
 
@@ -707,14 +560,12 @@ footer nav {
   gap: 1.5rem;
 }
 
-/* Footer yuqori qism */
 .footer-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Footer logo */
 .footer-logo {
   font-family: var(--mono);
   font-size: 1rem;
@@ -724,11 +575,8 @@ footer nav {
   gap: 6px;
 }
 
-.footer-logo span {
-  color: var(--accent);
-}
+.footer-logo span { color: var(--accent); }
 
-/* Footer havolalar */
 .footer-links {
   display: flex;
   gap: 2rem;
@@ -745,11 +593,8 @@ footer nav {
   transition: color 0.2s;
 }
 
-.footer-links a:hover {
-  color: var(--accent);
-}
+.footer-links a:hover { color: var(--accent); }
 
-/* Footer quyi qism */
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -758,18 +603,14 @@ footer nav {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Mualliflik huquqi matni */
 .footer-copy {
   font-family: var(--mono);
   font-size: 0.68rem;
   color: #444;
 }
 
-.footer-copy span {
-  color: var(--accent);
-}
+.footer-copy span { color: var(--accent); }
 
-/* Qurilgan joy */
 .footer-built {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -782,32 +623,22 @@ footer nav {
    ═══════════════════════════════════════════════════════ */
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero elementlari ketma-ket chiqadi */
 .hero-tag     { animation: fadeUp 0.5s 0.0s ease both; }
 .hero-title   { animation: fadeUp 0.5s 0.1s ease both; }
 .hero-desc    { animation: fadeUp 0.5s 0.2s ease both; }
 .hero-actions { animation: fadeUp 0.5s 0.3s ease both; }
-.hero-side    { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-skills  { animation: fadeUp 0.6s 0.2s ease both; }
 
 
 /* ═══════════════════════════════════════════════════════
-   RESPONSIVE (mobil moslamalar)
+   RESPONSIVE
    ═══════════════════════════════════════════════════════ */
 
-/* Planshet va mobil */
 @media (max-width: 900px) {
-
-  /* Hero: bir ustun */
   .hero {
     grid-template-columns: 1fr;
   }
@@ -816,22 +647,18 @@ footer nav {
     padding: 4rem 2rem;
   }
 
-  /* Hero o'ng tomoni yashiriladi */
-  .hero-side {
+  .hero-skills {
     display: none;
   }
 
-  /* Maqolalar + aside: bir ustun */
   .content-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Aside sticky o'chiriladi */
   aside {
     position: static;
   }
 
-  /* Nav havolalar yashiriladi */
   .nav-links {
     display: none;
   }

@@ -1,15 +1,15 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevMind — Bosh Sahifa</title>
-  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DevMind — Bosh Sahifa</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 </head>
 <body>
 
+<!-- ═══ HEADER ═══════════════════════════════════════ -->
 <header>
   <nav>
     <div class="logo"><span>#</span> DevMind</div>
@@ -23,114 +23,114 @@
   </nav>
 </header>
 
+<!-- ═══ MAIN ═════════════════════════════════════════ -->
 <main>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Backend Developer & Texnik Blogger</div>
-    <h1 class="hero-title">
-      Kod yozaman,<br />
-      <em>fikr ulashaman,</em><br />
-      o'sib boraman.
-    </h1>
-    <p class="hero-desc">
-      Salom! Men — Abdujalol. Backend developer va texnik blog muallifi.
-    </p>
-    <div class="hero-actions">
-      <a href="{% url 'blog-list' %}" class="btn-primary">Maqolalarni o'qi</a>
-      <a href="{% url 'about' %}" class="btn-ghost">Haqimda →</a>
-    </div>
-  </div>
-
-  <!-- FIX: ortiqcha div olib tashlandi -->
-  <div class="hero-skills">
-    <span class="skill-badge">Python</span>
-    <span class="skill-badge">Django</span>
-    <span class="skill-badge">FastAPI</span>
-    <span class="skill-badge">PostgreSQL</span>
-    <span class="skill-badge">AWS</span>
-    <span class="skill-badge">Git</span>
-    <span class="skill-badge">REST API</span>
-  </div>
-</section>
-
-<div class="section-header">
-  <div>
-    <div class="section-label">So'nggi yozuvlar</div>
-    <h2 class="section-title">Yangi maqolalar</h2>
-  </div>
-  <a href="{% url 'blog-list' %}" class="view-all">Barchasini ko'rish →</a>
-</div>
-
-<div class="content-grid">
-
-<article>
-
-{% for article in articles %}
-
-<section class="post-card">
-  <div>
-    <div class="post-meta">
-      <span class="post-category">{{ article.category }}</span>
-      <span class="post-date">{{ article.created_at }}</span>
-      <span class="read-time">{{ article.read_time }} o'qish</span>
-    </div>
-
-    <!-- FIX: to‘g‘ri link -->
-    <a href="{% url 'blog-detail' article.slug %}" class="post-title">
-      {{ article.title }}
-    </a>
-
-    <p class="post-excerpt">
-      {{ article.content|truncatechars:120 }}
-    </p>
-
-    <div class="post-footer">
-      <span class="read-time">{{ article.read_time }} o'qish</span>
-
-      <div class="post-tags">
-        {% for tag in article.tags %}
-          <span class="tag">#{{ tag }}</span>
-        {% endfor %}
+  <!-- ── HERO ───────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Backend Developer & Texnik Blogger</div>
+      <h1 class="hero-title">
+        Kod yozaman,<br />
+        <em>fikr ulashaman,</em><br />
+        o'sib boraman.
+      </h1>
+      <p class="hero-desc">
+        Salom! Men — Abdujalol. Backend developer va texnik blog muallifi.
+      </p>
+      <div class="hero-actions">
+        <a href="{% url 'blog-list' %}" class="btn-primary">Maqolalarni o'qi</a>
+        <a href="{% url 'about' %}" class="btn-ghost">Haqimda →</a>
       </div>
     </div>
 
-  <!-- FIX: dynamic number -->
-  <div class="post-number">
-    {{ forloop.counter|stringformat:"02d" }}
+    <div class="hero-skills">
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">Django</span>
+      <span class="skill-badge">FastAPI</span>
+      <span class="skill-badge">PostgreSQL</span>
+      <span class="skill-badge">AWS</span>
+      <span class="skill-badge">Git</span>
+      <span class="skill-badge">REST API</span>
+    </div>
+  </section>
+  <!-- ── / HERO ─────────────────────────────────────── -->
+
+  <!-- ── CONTENT ────────────────────────────────────── -->
+  <div class="content-wrapper">
+
+    <div class="section-header">
+      <div>
+        <div class="section-label">So'nggi yozuvlar</div>
+        <h2 class="section-title">Yangi maqolalar</h2>
+      </div>
+      <a href="{% url 'blog-list' %}" class="view-all">Barchasini ko'rish →</a>
+    </div>
+
+    <div class="content-grid">
+
+      <!-- Maqolalar -->
+      <article>
+        {% for article in articles %}
+        <section class="post-card">
+          <div>
+            <div class="post-meta">
+              <span class="post-category">{{ article.category }}</span>
+              <span class="post-date">{{ article.created_at }}</span>
+            </div>
+            <a href="{% url 'blog-detail' article.slug %}" class="post-title">
+              {{ article.title }}
+            </a>
+            <p class="post-excerpt">
+              {{ article.content|truncatechars:120 }}
+            </p>
+            <div class="post-footer">
+              <span class="read-time">{{ article.read_time }} o'qish</span>
+              <div class="post-tags">
+                {% for tag in article.tags %}
+                <span class="tag">#{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="post-number">
+            {{ forloop.counter|stringformat:"02d" }}
+          </div>
+        </section>
+        {% empty %}
+        <p style="color: var(--muted); font-family: var(--mono); font-size: 0.85rem;">
+          Hozircha maqolalar yo'q.
+        </p>
+        {% endfor %}
+      </article>
+
+      <!-- Aside -->
+      <aside>
+        <div class="aside-widget">
+          <div class="widget-title">Muallif haqida</div>
+          <div class="about-avatar">A</div>
+          <div class="about-name">Abdujalol Tursunov</div>
+          <div class="about-role">Backend Developer</div>
+          <p class="about-bio">
+            Python va zamonaviy backend texnologiyalar bo'yicha tajribali dasturchi.
+          </p>
+          <div class="social-links">
+            <a class="social-link" href="https://github.com/" target="_blank">gh</a>
+            <a class="social-link" href="https://t.me/" target="_blank">tg</a>
+            <a class="social-link" href="https://linkedin.com/" target="_blank">in</a>
+            <a class="social-link" href="https://twitter.com/" target="_blank">tw</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
   </div>
-</section>
-
-{% endfor %}
-
-</article>
-
-<aside>
-
-<div class="aside-widget">
-  <div class="widget-title">Muallif haqida</div>
-  <div class="about-avatar">A</div>
-  <div class="about-name">Abdujalol Tursunov</div>
-  <div class="about-role">Backend Developer</div>
-  <p class="about-bio">
-    Python va zamonaviy backend texnologiyalar bo'yicha tajribali dasturchi.
-  </p>
-
-  <!-- FIX: tashqi linklar -->
-  <div class="social-links">
-    <a class="social-link" href="https://github.com/" target="_blank">gh</a>
-    <a class="social-link" href="https://t.me/" target="_blank">tg</a>
-    <a class="social-link" href="https://linkedin.com/" target="_blank">in</a>
-    <a class="social-link" href="https://twitter.com/" target="_blank">tw</a>
-  </div>
-</div>
-
-</aside>
-
-</div>
+  <!-- ── / CONTENT ──────────────────────────────────── -->
 
 </main>
+<!-- ═══ / MAIN ════════════════════════════════════════ -->
 
+<!-- ═══ FOOTER ════════════════════════════════════════ -->
 <footer>
   <nav>
     <div class="footer-top">
@@ -141,8 +141,13 @@
         <li><a href="{% url 'projects' %}">Loyihalar</a></li>
       </ul>
     </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan.</div>
+      <div class="footer-built">Built with <span>♥</span> Django</div>
+    </div>
   </nav>
 </footer>
+<!-- ═══ / FOOTER ══════════════════════════════════════ -->
 
 </body>
 </html>
