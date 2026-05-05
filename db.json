@@ -1,104 +1,154 @@
 {
-  "articles": [
-    {
-      "id": 1,
-      "title": "Django nima?",
-      "slug": "django-nima",
-      "content": "Django — Python asosidagi kuchli web framework. U tez, xavfsiz va scalable web ilovalar yaratish imkonini beradi.",
-      "category": "Backend",
-      "created_at": "2025-05-01",
-      "read_time": "8 min",
-      "tags": ["django", "python", "backend"]
-    },
-    {
-      "id": 2,
-      "title": "Python afzalliklari",
-      "slug": "python-afzalliklari",
-      "content": "Python sodda sintaksisga ega va backend, AI, data science sohalarida keng qo‘llaniladi.",
-      "category": "Programming",
-      "created_at": "2025-05-02",
-      "read_time": "6 min",
-      "tags": ["python", "ai", "backend"]
-    },
-    {
-      "id": 3,
-      "title": "REST API nima?",
-      "slug": "rest-api-nima",
-      "content": "REST API — client va server o‘rtasida ma’lumot almashish uchun ishlatiladi.",
-      "category": "API",
-      "created_at": "2025-05-03",
-      "read_time": "5 min",
-      "tags": ["api", "rest", "backend"]
-    },
-    {
-      "id": 4,
-      "title": "Frontend vs Backend",
-      "slug": "frontend-vs-backend",
-      "content": "Frontend foydalanuvchi interfeysi, backend esa server logikani boshqaradi.",
-      "category": "Web",
-      "created_at": "2025-05-04",
-      "read_time": "7 min",
-      "tags": ["frontend", "backend", "web"]
-    },
-    {
-      "id": 5,
-      "title": "Database nima?",
-      "slug": "database-nima",
-      "content": "Database — ma’lumotlarni saqlash va boshqarish tizimi.",
-      "category": "Database",
-      "created_at": "2025-05-05",
-      "read_time": "6 min",
-      "tags": ["database", "sql", "backend"]
-    },
-    {
-      "id": 6,
-      "title": "PostgreSQL haqida",
-      "slug": "postgresql-haqida",
-      "content": "PostgreSQL kuchli va open-source relational database hisoblanadi.",
-      "category": "Database",
-      "created_at": "2025-05-06",
-      "read_time": "7 min",
-      "tags": ["postgresql", "sql", "database"]
-    },
-    {
-      "id": 7,
-      "title": "Docker nima?",
-      "slug": "docker-nima",
-      "content": "Docker ilovalarni container ichida ishga tushirish imkonini beradi.",
-      "category": "DevOps",
-      "created_at": "2025-05-07",
-      "read_time": "5 min",
-      "tags": ["docker", "devops", "container"]
-    },
-    {
-      "id": 8,
-      "title": "Git va GitHub",
-      "slug": "git-github",
-      "content": "Git — version control system, GitHub esa kodlarni saqlash platformasi.",
-      "category": "Tools",
-      "created_at": "2025-05-08",
-      "read_time": "4 min",
-      "tags": ["git", "github", "tools"]
-    },
-    {
-      "id": 9,
-      "title": "API xavfsizligi",
-      "slug": "api-xavfsizligi",
-      "content": "API’ni himoya qilish uchun authentication va tokenlardan foydalaniladi.",
-      "category": "Security",
-      "created_at": "2025-05-09",
-      "read_time": "6 min",
-      "tags": ["security", "api", "auth"]
-    },
-    {
-      "id": 10,
-      "title": "Deployment nima?",
-      "slug": "deployment-nima",
-      "content": "Deployment — loyihani serverga joylash jarayoni.",
-      "category": "DevOps",
-      "created_at": "2025-05-10",
-      "read_time": "5 min",
-      "tags": ["deployment", "server", "devops"]
-    }
-  ]
+    "articles": [
+        {
+            "id": 1,
+            "title": "Django nima?",
+            "slug": "django-nima",
+            "content": "Django \u2014 Python asosidagi kuchli web framework. U tez, xavfsiz va scalable web ilovalar yaratish imkonini beradi.",
+            "category": "Backend",
+            "created_at": "2025-05-01",
+            "read_time": "8 min",
+            "tags": [
+                "django",
+                "python",
+                "backend"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Python afzalliklari",
+            "slug": "python-afzalliklari",
+            "content": "Python sodda sintaksisga ega va backend, AI, data science sohalarida keng qo\u2018llaniladi.",
+            "category": "Programming",
+            "created_at": "2025-05-02",
+            "read_time": "6 min",
+            "tags": [
+                "python",
+                "ai",
+                "backend"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "REST API nima?",
+            "slug": "rest-api-nima",
+            "content": "REST API \u2014 client va server o\u2018rtasida ma\u2019lumot almashish uchun ishlatiladi.",
+            "category": "API",
+            "created_at": "2025-05-03",
+            "read_time": "5 min",
+            "tags": [
+                "api",
+                "rest",
+                "backend"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Frontend vs Backend",
+            "slug": "frontend-vs-backend",
+            "content": "Frontend foydalanuvchi interfeysi, backend esa server logikani boshqaradi.",
+            "category": "Web",
+            "created_at": "2025-05-04",
+            "read_time": "7 min",
+            "tags": [
+                "frontend",
+                "backend",
+                "web"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Database nima?",
+            "slug": "database-nima",
+            "content": "Database \u2014 ma\u2019lumotlarni saqlash va boshqarish tizimi.",
+            "category": "Database",
+            "created_at": "2025-05-05",
+            "read_time": "6 min",
+            "tags": [
+                "database",
+                "sql",
+                "backend"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "PostgreSQL haqida",
+            "slug": "postgresql-haqida",
+            "content": "PostgreSQL kuchli va open-source relational database hisoblanadi.",
+            "category": "Database",
+            "created_at": "2025-05-06",
+            "read_time": "7 min",
+            "tags": [
+                "postgresql",
+                "sql",
+                "database"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Docker nima?",
+            "slug": "docker-nima",
+            "content": "Docker ilovalarni container ichida ishga tushirish imkonini beradi.",
+            "category": "DevOps",
+            "created_at": "2025-05-07",
+            "read_time": "5 min",
+            "tags": [
+                "docker",
+                "devops",
+                "container"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Git va GitHub",
+            "slug": "git-github",
+            "content": "Git \u2014 version control system, GitHub esa kodlarni saqlash platformasi.",
+            "category": "Tools",
+            "created_at": "2025-05-08",
+            "read_time": "4 min",
+            "tags": [
+                "git",
+                "github",
+                "tools"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "API xavfsizligi",
+            "slug": "api-xavfsizligi",
+            "content": "API\u2019ni himoya qilish uchun authentication va tokenlardan foydalaniladi.",
+            "category": "Security",
+            "created_at": "2025-05-09",
+            "read_time": "6 min",
+            "tags": [
+                "security",
+                "api",
+                "auth"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Deployment nima?",
+            "slug": "deployment-nima",
+            "content": "Deployment \u2014 loyihani serverga joylash jarayoni.",
+            "category": "DevOps",
+            "created_at": "2025-05-10",
+            "read_time": "5 min",
+            "tags": [
+                "deployment",
+                "server",
+                "devops"
+            ]
+        },
+        {
+            "title": "add",
+            "content": "ass",
+            "slug": "add"
+        },
+        {
+            "title": "add",
+            "content": "sa",
+            "slug": "add"
+        }
+    ]
 }

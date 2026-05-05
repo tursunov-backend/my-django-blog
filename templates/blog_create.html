@@ -17,7 +17,7 @@
       <div class="logo"><span></span> </div>
       <ul class="nav-links">
         <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
-        <li><a href="{% url 'feed' %}">Lenta</a></li>
+        <li><a href="{% url 'blog-list' %}">Lenta</a></li>
         <li><a href="{% url 'liked' %}">Yoqtirilganlar</a></li>
       </ul>
     </nav>
@@ -33,7 +33,7 @@
     <!-- / Sahifa sarlavhasi -->
 
     <!-- Yaratish formasi -->
-    <form method="POST" action="{% url 'create_post' %}">
+    <form method="POST" action="{% url 'blog-create' %}">
 
       <!-- Django CSRF token (xavfsizlik uchun majburiy) -->
       {% csrf_token %}

@@ -67,8 +67,11 @@ def about_page(request: HttpRequest) -> HttpResponse:
 def projects_page(request: HttpRequest) -> HttpResponse:
     return render(request=request, template_name='projects.html')
 
+
 def blog_create(request: HttpRequest) -> HttpResponse:
-    if request.method == 'POST':
+    if request.method == 'GET':
+        return render(request=request, template_name='blog_create.html')
+    elif request.method == 'POST':
         title   = request.POST.get('title', '').strip()
         content = request.POST.get('content', '').strip()
 
@@ -78,9 +81,17 @@ def blog_create(request: HttpRequest) -> HttpResponse:
 
         if errors:
             return render(request, 'blog_create.html', {'errors': errors})
+        
+        # slug yaratish
+        slug = title.lower().replace(' ', '-')
+        
+        db.add_article({
+            'title': title,
+            'content': content,
+            'slug': slug,
+        })
+        
         return redirect('home')
-
-    return render(request=request, template_name='blog_create.html')
 
 def blog_edit(request: HttpRequest, pk: int) -> HttpResponse:
     if request.method == 'POST':

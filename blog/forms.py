@@ -9,3 +9,10 @@ class GetArticleQueryForm(forms.Form):
     def clean_search(self):
         data = self.cleaned_data
         return data['search'].lower()
+    
+
+class CreateArticleForm(forms.Form):
+    title = forms.CharField(max_length=100, min_length=3)
+    content = forms.CharField(max_length=5000, min_length=10)
+
+    
