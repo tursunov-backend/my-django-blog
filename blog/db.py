@@ -40,6 +40,6 @@ class Database:
         data = self.read()
         articles = []
         for article in data['articles']:
-            if search.lower() in article.get('title', '').lower():
+            if search in article.get('title', '').lower():
                 articles.append(article)
         return articles

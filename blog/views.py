@@ -25,18 +25,16 @@ def home_page(request: HttpRequest) -> HttpResponse:
     })
 def blog_list(request: HttpRequest) -> HttpResponse:
     form = GetArticleQueryForm(request.GET)
-    articles = db.get_articles()
-
+    
     if form.is_valid():
-        search = form.cleaned_data.get('search')
-        if search:
-            articles = [a for a in articles
-                       if search.lower() in a['title'].lower()]
-        return render(request=request, template_name='blog_list.html',
-                     context={'articles': articles})
+        data = form.cleaned_data
 
-    return render(request=request, template_name='blog_list.html',
-                 context={'articles': articles, 'form': form})
+        articles = db.get_articles_by_title(data['search'])
+
+        
+        return render(request=request, template_name='blog_list.html', context={'articles': articles})
+    articles = db.get_articles
+    return render(request=request, template_name='blog_list.html', context={'articles': articles, 'form': form})
 
 
 def blog_detail(request: HttpRequest, slug: str) -> HttpResponse:
