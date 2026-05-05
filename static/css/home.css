@@ -28,9 +28,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
 
 /* ─── BASE ───────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--paper);
@@ -96,9 +94,7 @@ header nav {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
+.nav-links a.active { color: var(--accent); }
 
 .nav-cta {
   background: var(--accent);
@@ -107,13 +103,11 @@ header nav {
   border-radius: 2px;
 }
 
-.nav-cta:hover {
-  opacity: 0.88;
-}
+.nav-cta:hover { opacity: 0.88; }
 
 
 /* ═══════════════════════════════════════════════════════
-   MAIN — padding yo'q (hero full ekran uchun)
+   MAIN
    ═══════════════════════════════════════════════════════ */
 
 main {
@@ -233,11 +227,8 @@ main {
   transition: color 0.2s;
 }
 
-.btn-ghost:hover {
-  color: var(--white);
-}
+.btn-ghost:hover { color: var(--white); }
 
-/* Hero o'ng: skills */
 .hero-skills {
   height: 100%;
   display: flex;
@@ -268,7 +259,7 @@ main {
 
 
 /* ═══════════════════════════════════════════════════════
-   CONTENT (hero pastidagi qism)
+   CONTENT
    ═══════════════════════════════════════════════════════ */
 
 .content-wrapper {
@@ -311,15 +302,95 @@ main {
   text-decoration: none;
 }
 
-.view-all:hover {
-  text-decoration: underline;
-}
+.view-all:hover { text-decoration: underline; }
 
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 3rem;
   align-items: start;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SEARCH FORM
+   ═══════════════════════════════════════════════════════ */
+
+.search-form {
+  margin-bottom: 2.5rem;
+}
+
+.search-input-group {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.search-input-group input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: none;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.search-input-group input::placeholder {
+  color: var(--muted);
+}
+
+.search-input-group input:focus {
+  background: #fdfaf5;
+}
+
+.search-input-group button {
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.search-input-group button:hover {
+  background: #a83a22;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   FORM XATOLARI
+   ═══════════════════════════════════════════════════════ */
+
+.form-errors {
+  background: rgba(200, 75, 49, 0.08);
+  border: 1px solid rgba(200, 75, 49, 0.3);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-errors ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-errors li {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--accent);
 }
 
 
@@ -362,9 +433,7 @@ section.post-card:hover {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-section.post-card:hover::before {
-  background: var(--accent);
-}
+section.post-card:hover::before { background: var(--accent); }
 
 .post-meta {
   display: flex;
@@ -542,6 +611,42 @@ aside {
 
 
 /* ═══════════════════════════════════════════════════════
+   PAGINATION
+   ═══════════════════════════════════════════════════════ */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.pagination-info {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  min-width: 60px;
+  text-align: center;
+}
+
+.btn-disabled {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--line);
+  padding: 14px 32px;
+  border-radius: 2px;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════ */
 
@@ -639,27 +744,13 @@ footer nav {
    ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    padding: 4rem 2rem;
-  }
-
-  .hero-skills {
-    display: none;
-  }
-
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  aside {
-    position: static;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  .hero { grid-template-columns: 1fr; }
+  .hero-content { padding: 4rem 2rem; }
+  .hero-skills { display: none; }
+  .content-grid { grid-template-columns: 1fr; }
+  aside { position: static; }
+  .nav-links { display: none; }
+  .pagination { flex-wrap: wrap; }
+  .btn-disabled { display: none; }
+  .search-input-group { max-width: 100%; }
 }

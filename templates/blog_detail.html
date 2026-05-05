@@ -1,168 +1,91 @@
-
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Bosh Sahifa</title>
-  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <title>{{ article.title }} — DevMind</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
   <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}" />
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══════════════════════════════════════ -->
-  <header>
-    <nav>
-      <div class="logo"><span></span> </div>
-      <ul class="nav-links">
-        <li><a href="{% url 'home' %}" class="active">Bosh sahifa</a></li>
-        <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
-        <li><a href="{% url 'projects' %}">Loyihalar</a></li>
-        <li><a href="{% url 'about' %}">Haqimda</a></li>
-        <li><a href="{% url 'contact' %}" class="nav-cta">Bog'lanish</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- ═══ / HEADER ════════════════════════════════════ -->
+<!-- ═══ HEADER ═══════════════════════════════════════ -->
+<header>
+  <nav>
+    <div class="logo"><span>#</span> DevMind</div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+      <li><a href="{% url 'blog-list' %}" class="active">Maqolalar</a></li>
+      <li><a href="{% url 'projects' %}">Loyihalar</a></li>
+      <li><a href="{% url 'about' %}">Haqimda</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Bog'lanish</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- ═══ / HEADER ════════════════════════════════════ -->
 
-  <!-- ═══ MAIN ═════════════════════════════════════════ -->
-  <main>
+<!-- ═══ MAIN ═════════════════════════════════════════ -->
+<main>
+  <div class="detail-wrapper">
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-tag">Backend Developer &amp; Texnik Blogger</div>
-        <h1 class="hero-title">
-          Kod yozaman,<br />
-          <em>fikr ulashaman,</em><br />
-          o'sib boraman.
-        </h1>
-        <p class="hero-desc">
-          Salom! Men — Abdujalol. Backend ishlab chiquvchi va texnik blog muallifi.
-          Bu yerda JavaScript, React, UI/UX va zamonaviy web texnologiyalar haqida
-          chuqur maqolalar yozaman.
-        </p>
-        <div class="hero-actions">
-          <a href="{% url 'blog-list' %}" class="btn-primary">>Maqolalarni o'qi</a>
-          <a href="{% url 'about' %}" class="btn-ghost">Haqimda ko'proq →</a>
+    <!-- Ortga qaytish -->
+    <a href="{% url 'blog-list' %}" class="back-link">← Maqolalarga qaytish</a>
+
+    <!-- Maqola + Aside grid -->
+    <div class="detail-grid">
+
+      <!-- ── Maqola ─────────────────────────────────── -->
+      <article class="detail-article">
+
+        <!-- Meta -->
+        <div class="detail-meta">
+          <span class="post-category">{{ article.category }}</span>
+          <span class="post-date">{{ article.created_at }}</span>
+          <span class="read-time">{{ article.read_time }} o'qish</span>
         </div>
-      </div>
 
-      <!-- Hero o'ng tomon: statistika va skills -->
-      <div class="hero-side">
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">48+</div>
-            <div class="stat-label">Nashr etilgan maqola</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">3.2k</div>
-            <div class="stat-label">Oylik o'quvchilar</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">5 yil</div>
-            <div class="stat-label">Backend tajribasi</div>
-          </div>
+        <!-- Sarlavha -->
+        <h1 class="detail-title">{{ article.title }}</h1>
+
+        <!-- Teglar -->
+        <div class="detail-tags">
+          {% for tag in article.tags %}
+          <span class="tag">#{{ tag }}</span>
+          {% endfor %}
         </div>
-        <div class="hero-skills">
-          <span class="skill-badge">Python</span>
-          <span class="skill-badge">Django</span>
-          <span class="skill-badge">PostgreSQL</span>
-          <span class="skill-badge">Docker</span>
-          <span class="skill-badge">AWS</span>
-          <span class="skill-badge">Git</span>
-          <span class="skill-badge">Figma</span>
-          <span class="skill-badge">REST API</span>
+
+        <!-- Ajratuvchi chiziq -->
+        <hr class="detail-divider" />
+
+        <!-- To'liq matn -->
+        <div class="detail-content">
+          {{ article.content }}
         </div>
-      </div>
-    </section>
-    <!-- / Hero Section -->
-
-    <!-- So'nggi maqolalar sarlavhasi -->
-    <div class="section-header">
-      <div>
-        <div class="section-label">So'nggi yozuvlar</div>
-        <h2 class="section-title">Yangi maqolalar</h2>
-      </div>
-      <a href="{% url 'blog-list' %}" class="view-all">
-    Barchasini ko‘rish →
-</a>
-    </div>
-
-    <!-- Maqolalar + Aside grid -->
-    <div class="content-grid">
-
-      <!-- Maqolalar ro'yxati -->
-      <article>
-
-        {% for article in articles %}
-        <!-- Maqola 01 -->
-        <section class="post-card">
-          <div>
-            <div class="post-meta">
-              <span class="post-category">React</span>
-              <span class="post-date">28 Aprel, 2025</span>
-            </div>
-            <a href="{% url 'article_detail' article.id %}" class="post-title">
-  {{ article.title }}
-</a>
-            
-            <p class="post-excerpt">
-              {{ article.content|truncatewords:20 }}
-            </p>
-            <div class="post-footer">
-              <span class="read-time">8 min o'qish</span>
-              <div class="post-tags">
-                <span class="tag">#react</span>
-                <span class="tag">#javascript</span>
-                <span class="tag">#frontend</span>
-              </div>
-            </div>
-          </div>
-          <div class="post-number">01</div>
-        </section>
-        <!-- / Maqola 01 -->
-        {% endfor %}
 
       </article>
-      <!-- / Maqolalar ro'yxati -->
+      <!-- ── / Maqola ───────────────────────────────── -->
 
-      <!-- Yon panel (Aside) -->
+      <!-- ── Aside ──────────────────────────────────── -->
       <aside>
 
-        <!-- Widget: Muallif haqida -->
+        <!-- Muallif haqida -->
         <div class="aside-widget">
           <div class="widget-title">Muallif haqida</div>
           <div class="about-avatar">A</div>
           <div class="about-name">Abdujalol Tursunov</div>
           <div class="about-role">Backend Developer</div>
           <p class="about-bio">
-            Samarqandda yashab, ishlaydi. Python va zamonaviy backend texnologiyalar
-            bo'yicha tajribali dasturchi. UI/UX va performancega qiziquvchi.
+            Python va zamonaviy backend texnologiyalar bo'yicha tajribali dasturchi.
           </p>
           <div class="social-links">
-            <a class="social-link" href="https://github.com/tursunov-backend" title="GitHub">gh</a>
-            <a class="social-link" href="https://t.me/tursunoff_19" title="Telegram">tg</a>
+            <a class="social-link" href="https://github.com/" target="_blank">gh</a>
+            <a class="social-link" href="https://t.me/" target="_blank">tg</a>
+            <a class="social-link" href="https://linkedin.com/" target="_blank">in</a>
           </div>
         </div>
-        <!-- / Widget: Muallif haqida -->
 
-        <!-- Widget: Mavzular -->
-        <div class="aside-widget">
-          <div class="widget-title">Mavzular</div>
-          <div class="topic-list">
-            <a href="#" class="topic-item">JavaScript <span class="topic-count">18</span></a>
-            <a href="#" class="topic-item">React <span class="topic-count">14</span></a>
-            <a href="#" class="topic-item">CSS &amp; Design <span class="topic-count">9</span></a>
-            <a href="#" class="topic-item">Performance <span class="topic-count">6</span></a>
-            <a href="#" class="topic-item">Karyera <span class="topic-count">4</span></a>
-          </div>
-        </div>
-        <!-- / Widget: Mavzular -->
-
-        <!-- Widget: Newsletter -->
+        <!-- Newsletter -->
         <div class="aside-widget">
           <div class="widget-title">Newsletter</div>
           <div class="newsletter-form">
@@ -171,36 +94,33 @@
             <button class="newsletter-btn">Obuna bo'lish</button>
           </div>
         </div>
-        <!-- / Widget: Newsletter -->
 
       </aside>
-      <!-- / Yon panel (Aside) -->
+      <!-- ── / Aside ────────────────────────────────── -->
 
     </div>
-    <!-- / Maqolalar + Aside grid -->
+  </div>
+</main>
+<!-- ═══ / MAIN ════════════════════════════════════════ -->
 
-  </main>
-  <!-- ═══ / MAIN ════════════════════════════════════════ -->
-
-  <!-- ═══ FOOTER ════════════════════════════════════════ -->
-  <footer>
-    <nav>
-      <div class="footer-top">
-        <div class="footer-logo"><span></span> </div>
-        <ul class="footer-links">
-          <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
-          <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
-          <li><a href="{% url 'projects' %}">Loyihalar</a></li>
-          <li><a href="{% url 'rss' %}">RSS</a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">© 2025  Barcha huquqlar himoyalangan. <span>♥</span></div>
-        <div class="footer-built">Samarqand, O'zbekiston</div>
-      </div>
-    </nav>
-  </footer>
-  <!-- ═══ / FOOTER ══════════════════════════════════════ -->
+<!-- ═══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <nav>
+    <div class="footer-top">
+      <div class="footer-logo"><span>#</span> DevMind</div>
+      <ul class="footer-links">
+        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+        <li><a href="{% url 'blog-list' %}">Maqolalar</a></li>
+        <li><a href="{% url 'projects' %}">Loyihalar</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 DevMind.uz — Barcha huquqlar himoyalangan.</div>
+      <div class="footer-built">Built with <span>♥</span> Django</div>
+    </div>
+  </nav>
+</footer>
+<!-- ═══ / FOOTER ══════════════════════════════════════ -->
 
 </body>
 </html>

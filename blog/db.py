@@ -35,3 +35,11 @@ class Database:
         data = self.read()
         data.setdefault('articles', []).append(article)
         self.write(data)
+
+    def find_articles_by_search(self, search: str):
+        data = self.read()
+        articles = []
+        for article in data['articles']:
+            if search.lower() in article.get('title', '').lower():
+                articles.append(article)
+        return articles
